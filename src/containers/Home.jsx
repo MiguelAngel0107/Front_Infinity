@@ -1,10 +1,10 @@
-import NavBar from './components/navigation/navbar'
+import Layout from '../hocs/layout'
 
-function Home() {
+const Home = () => {
   return (
-    <div>
-      <NavBar/>
-    </div>
+    <Layout>
+      <h1>test</h1>
+    </Layout>
   );
 }
 
