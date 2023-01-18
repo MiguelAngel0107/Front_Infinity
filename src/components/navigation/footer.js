@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer aria-label="Site Footer" class="bg-white dark:bg-gray-900">
@@ -274,12 +276,12 @@ const Footer = () => {
               <nav aria-label="Footer Helpful Nav" class="mt-8">
                 <ul class="space-y-4 text-sm">
                   <li>
-                    <a
+                    <Link
                       class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                      href="/"
+                      to="/faq"
                     >
                       FAQs
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
