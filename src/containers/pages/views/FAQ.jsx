@@ -1,12 +1,17 @@
-import Layout from "../../../layout/layout"
-import {FAQ as Faq} from "../../../components/FAQ/FAQ"
+import Layout from "../../../layout/layout";
+import { FAQ as Faq } from "../../../components/FAQ/FAQ";
+import { useEffect } from "react";
 
 const FAQ = () => {
-    return (
-        <Layout>
-            <Faq/>
-        </Layout>
-    )
-}
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
-export default FAQ
+  return (
+    <Layout>
+      <Faq />
+    </Layout>
+  );
+};
+
+export default FAQ;

@@ -339,7 +339,7 @@ const Footer = () => {
                     </svg>
 
                     <span class="text-gray-700 dark:text-gray-300">
-                      john@doe.com
+                      admin@owninfinity.com
                     </span>
                   </a>
                 </li>
@@ -365,7 +365,7 @@ const Footer = () => {
                     </svg>
 
                     <span class="text-gray-700 dark:text-gray-300">
-                      0123456789
+                      +51 904295191
                     </span>
                   </a>
                 </li>
@@ -423,7 +423,7 @@ const Footer = () => {
             </p>
 
             <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:order-first sm:mt-0">
-              &copy; 2022 Company Name
+              &copy; 2023 OwnInfinity
             </p>
           </div>
         </div>

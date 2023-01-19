@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="md:flex md:items-center md:gap-12">
-            <a class="block text-teal-600 dark:text-teal-600" href="/">
+            <Link class="block text-teal-600 dark:text-teal-600" to="/">
               <span class="sr-only">Home</span>
               <svg
                 class="h-8"
@@ -17,72 +19,86 @@ const Navbar = () => {
                   fill="currentColor"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div class="hidden md:block">
             <nav aria-label="Site Nav">
               <ul class="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/"
                   >
                     Inicio
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/servicios"
                   >
                     Servicios
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/productos"
                   >
                     Productos
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/paquetes"
                   >
                     Paquetes
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/proyectos"
                   >
-                    Projects
-                  </a>
+                    Proyectos
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="/"
+                    to="/contacto"
                   >
                     Contactenos
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
           </div>
 
           <div class="flex items-center gap-4">
-            <div class="sm:flex sm:gap-4"></div>
-            <div class="block md:hidden"></div>
+            <div class="sm:flex sm:gap-4">
+              <Link
+                class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
+                to="/login"
+              >
+                Login
+              </Link>
+              <div class="hidden sm:flex">
+                <Link
+                  class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                  to="/register"
+                >
+                  Register
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
