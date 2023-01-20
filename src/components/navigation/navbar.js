@@ -22,7 +22,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div class="hidden md:block">
+          <div class="hidden md:block ">
             <nav aria-label="Site Nav">
               <ul class="flex items-center gap-6 text-sm">
                 <li>
