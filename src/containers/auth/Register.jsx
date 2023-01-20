@@ -1,7 +1,31 @@
 import { Link } from "react-router-dom";
 import Layout from "../../layout/layout";
+import { useEffect, useState } from "react";
+import { signup } from "../../Redux/actions/auth";
+import { connect } from "react-redux";
 
-const Register = () => {
+const Register = ({ signup }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const [accountCreated, setAccountCreated] = useState(false);
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    re_password: "",
+  });
+  const { first_name, last_name, email, password, re_password } = formData;
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    signup(first_name, last_name, email, password, re_password);
+    setAccountCreated(true);
+  };
   return (
     <Layout>
       <section class="bg-white dark:bg-gray-900">
@@ -43,7 +67,10 @@ const Register = () => {
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
               </p>
 
-              <form action="#" class="mt-8 grid grid-cols-6 gap-6">
+              <form
+                onSubmit={(e) => onSubmit(e)}
+                class="mt-8 grid grid-cols-6 gap-6"
+              >
                 <div class="col-span-6 sm:col-span-3">
                   <label
                     for="FirstName"
@@ -54,7 +81,8 @@ const Register = () => {
 
                   <input
                     type="text"
-                    id="FirstName"
+                    value={first_name}
+                    onChange={(e) => onChange(e)}
                     name="first_name"
                     class="mt-1 w-full h-8 rounded-md border-gray-200 bg-white text-sm px-3 py-2 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                   />
@@ -70,7 +98,8 @@ const Register = () => {
 
                   <input
                     type="text"
-                    id="LastName"
+                    value={last_name}
+                    onChange={(e) => onChange(e)}
                     name="last_name"
                     class="mt-1 w-full h-8 rounded-md border-gray-200 bg-white text-sm px-3 py-2 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                   />
@@ -86,7 +115,8 @@ const Register = () => {
 
                   <input
                     type="email"
-                    id="Email"
+                    value={email}
+                    onChange={(e) => onChange(e)}
                     name="email"
                     class="mt-1 w-full h-8 rounded-md border-gray-200 bg-white text-sm px-3 py-2 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                   />
@@ -102,7 +132,8 @@ const Register = () => {
 
                   <input
                     type="password"
-                    id="Password"
+                    value={password}
+                    onChange={(e) => onChange(e)}
                     name="password"
                     class="mt-1 w-full h-8 rounded-md border-gray-200 bg-white text-sm px-3 py-2 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                   />
@@ -118,8 +149,9 @@ const Register = () => {
 
                   <input
                     type="password"
-                    id="PasswordConfirmation"
-                    name="password_confirmation"
+                    value={re_password}
+                    onChange={(e) => onChange(e)}
+                    name="re_password"
                     class="mt-1 w-full h-8 rounded-md border-gray-200 bg-white text-sm px-3 py-2 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                   />
                 </div>
@@ -161,7 +193,10 @@ const Register = () => {
                 </div>
 
                 <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-                  <button class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white">
+                  <button
+                    type="submit"
+                    class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
+                  >
                     Create an account
                   </button>
 
@@ -185,4 +220,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, {
+  signup,
+})(Register);

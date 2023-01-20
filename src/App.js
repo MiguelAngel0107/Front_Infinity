@@ -6,6 +6,7 @@ import Home from "./containers/pages/review/Home";
 
 import Login from "./containers/auth/Login";
 import Register from "./containers/auth/Register";
+import Activate from "./containers/auth/Activate";
 
 import Servicios from "./containers/pages/review/Servicios";
 import Productos from "./containers/pages/review/Productos";
@@ -26,6 +27,7 @@ function App() {
 
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/activate/:uid/:token" element={<Activate />} />
 
           <Route exact path="/servicios" element={<Servicios />} />
           <Route exact path="/productos" element={<Productos />} />
