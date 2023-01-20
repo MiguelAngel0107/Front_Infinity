@@ -2,15 +2,18 @@ import { Link, Navigate, NavLink } from "react-router-dom";
 import { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Menu, Transition } from '@headlessui/react'
-import Alert from "../alerts";
+import Alerts from "../alerts";
 import { logout } from "../../Redux/actions/auth";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Navbar = ({ isAuthenticated, user, logout }) => {
+const Navbar = ({ isAuthenticated, user, logout, alert }) => {
   const [redirect, setRedirect] = useState(false);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [alert]);
   const logoutHandler = () => {
     logout()
     setRedirect(true)
@@ -98,6 +101,7 @@ if (redirect){
   );
 
   return (
+    <>
     <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -184,12 +188,15 @@ if (redirect){
         </div>
       </div>
     </header>
+    <Alerts/>
+    </>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.Auth.isAuthenticated,
   user: state.Auth.user,
+  alert: state.Alert.alert,
 });
 
 export default connect(mapStateToProps, {
