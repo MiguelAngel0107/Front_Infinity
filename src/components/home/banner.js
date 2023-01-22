@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 const Banner = () => {
   return (
     <section class="bg-gray-900 text-white">
@@ -14,19 +16,19 @@ const Banner = () => {
           </p>
 
           <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a
+            <Link
               class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              href="/get-started"
+              to="/servicios"
             >
-              Get Started
-            </a>
+              Agendar Reunion
+            </Link>
 
-            <a
+            <Link
               class="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-              href="/about"
+              to="/contacto"
             >
-              Learn More
-            </a>
+              Sobre Nosotros
+            </Link>
           </div>
         </div>
       </div>

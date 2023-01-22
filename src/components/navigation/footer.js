@@ -339,7 +339,7 @@ const Footer = () => {
                     </svg>
 
                     <span class="text-gray-700 dark:text-gray-300">
-                      admin@owninfinity.com
+                      soport@owninfinity.com
                     </span>
                   </a>
                 </li>

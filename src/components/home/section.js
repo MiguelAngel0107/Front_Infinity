@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 const Section = () => {
   const ColorIcon = "h-10 w-10 text-teal-600";
   const ColorShadow =
@@ -8,7 +11,7 @@ const Section = () => {
       <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-lg text-center">
           <h2 class="text-3xl font-bold sm:text-4xl">
-            Kickstart your marketing
+            Lo que necesitas para despegar en Internet.
           </h2>
 
           <p class="mt-4 text-gray-300">
@@ -37,7 +40,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Diseño web Figma</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -64,7 +67,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Optimizado para Google</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -91,7 +94,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Carga Rápida</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -118,7 +121,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Diseño Responsivo</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -145,7 +148,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Optimización CTA</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -172,7 +175,7 @@ const Section = () => {
               />
             </svg>
 
-            <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+            <h2 class="mt-4 text-xl font-bold text-white">Formación y Soporte</h2>
 
             <p class="mt-1 text-sm text-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
@@ -183,11 +186,11 @@ const Section = () => {
         </div>
 
         <div class="mt-12 text-center">
-          <a
-            href="#"
+          <Link
+            to="/servicios"
             class="mt-8 inline-flex items-center rounded border border-teal-600 bg-teal-600 px-8 py-3 text-white hover:bg-transparent focus:outline-none focus:ring active:text-teal-500"
           >
-            <span class="text-sm font-medium"> Get Started </span>
+            <span class="text-sm font-medium"> Servicios </span>
 
             <svg
               class="ml-3 h-5 w-5"
@@ -203,7 +206,7 @@ const Section = () => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

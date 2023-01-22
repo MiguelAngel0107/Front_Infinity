@@ -11,10 +11,14 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.3",
     "boxicons": "^2.1.4",
+    "date-fns": "^2.29.3",
+    "flowbite": "^1.6.2",
+    "flowbite-react": "^0.3.7",
     "install": "^0.13.0",
     "npm": "^9.3.1",
     "react": "^18.2.0",
     "react-boxicons": "^0.0.28",
+    "react-day-picker": "^8.4.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
@@ -50,6 +54,8 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }
 }
