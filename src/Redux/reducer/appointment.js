@@ -10,17 +10,13 @@ const appointmentSlice = createSlice({
   name: "Appointment",
   initialState,
   reducers: {
-    TEST(state, action) {
-      let payload = action.payload;
+    CREATED_APPOINTMENT(state, action) {
       return {
         ...state,
-        user: payload.user,
-        date: payload.date,
-        time: payload.time,
       };
     },
   },
 });
 
-export const { TEST } = appointmentSlice.actions;
+export const { CREATED_APPOINTMENT } = appointmentSlice.actions;
 export default appointmentSlice.reducer;

@@ -71,3 +71,11 @@ export const Date = (x) => {
     year: Number(year),
   };
 };
+
+export const Hour = (x) => {
+  let time = x.split(":")
+  return ({
+    hour:time[0],
+    minute:time[1]
+  })
+}

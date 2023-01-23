@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { TEST } from "../reducer/appointment";
+import { CREATED_APPOINTMENT } from "../reducer/appointment";
 
 export const setReserve = (user, date, time) => async (dispatch) => {
   const config = {
@@ -18,7 +18,7 @@ export const setReserve = (user, date, time) => async (dispatch) => {
   try {
     const res = await axios.post(`${process.env.REACT_APP_API_URL}/appointment/reserve/`,body,config); 
     if (res.status === 200 && res.data) {
-      dispatch(TEST(res.data));
+      dispatch(CREATED_APPOINTMENT(res.data));
       dispatch(setAlert('Cita guardada exitosamente', "green"));
     } else {
       dispatch(setAlert("Ingrese de nuevo los valores", "red"));

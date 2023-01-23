@@ -14,6 +14,8 @@ import Reserva from "./containers/pages/review/Reserva";
 import Proyectos from "./containers/pages/review/Proyectos";
 import Contacto from "./containers/pages/review/Contacto";
 
+import Dashboard from "./containers/pages/review/Dashboard";
+
 import FAQ from "./containers/pages/views/FAQ";
 import NotFound from "./containers/pages/views/NotFound";
 
@@ -34,6 +36,8 @@ function App() {
           <Route exact path="/reserva" element={<Reserva />} />
           <Route exact path="/proyectos" element={<Proyectos />} />
           <Route exact path="/contacto" element={<Contacto />} />
+
+          <Route exact path="/dashboard" element={<Dashboard />} />
 
           <Route exact path="/faq" element={<FAQ />} />
         </Routes>
