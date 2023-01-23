@@ -1,8 +1,8 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { CREATED_APPOINTMENT } from "../reducer/appointment";
+import { CREATED_APPOINTMENT, GET_RESERVE } from "../reducer/appointment";
 
-export const setReserve = (user, date, time) => async (dispatch) => {
+export const createReserve = (user, date, time) => async (dispatch) => {
   const config = {
     headers: {
       "Accept": "application/json",
@@ -27,3 +27,25 @@ export const setReserve = (user, date, time) => async (dispatch) => {
     dispatch(setAlert("Error con el Servidor", "red"));
   }
 };
+
+export const getReserve = () => async dispatch => {
+  const config = {
+    headers: {
+      "Accept": "application/json",
+      "Authorization": `JWT ${localStorage.getItem("access")}`,
+    },
+  };
+  try{
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/appointment/get-reserve/`, config)
+    console.log('Success in Axios')
+    if (res.status === 200 && res.data) {
+      dispatch(GET_RESERVE(res.data));
+    } else {
+      dispatch(setAlert("Error de Carga", "red"));
+    }
+
+  } catch (err) {
+    console.log('Fail')
+    dispatch(setAlert("Error con el Servidor", "red"));
+  }
+}

@@ -10,11 +10,11 @@ import TimePicker from "rc-time-picker";
 import "../../../style/time.css";
 import "rc-time-picker/assets/index.css";
 
-import { setReserve } from "../../../Redux/actions/appointment";
+import { createReserve } from "../../../Redux/actions/appointment";
 import { connect } from "react-redux";
 import { Date, Hour } from "../../../helpers/formatDate";
 
-const Reserva = ({ setReserve, user, isAuthenticated }) => {
+const Reserva = ({ createReserve, user, isAuthenticated }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -40,7 +40,7 @@ const Reserva = ({ setReserve, user, isAuthenticated }) => {
     e.preventDefault();
     let date = Date(selected);
     let time = Hour(hour);
-    setReserve(user.email, date, time);
+    createReserve(user.email, date, time);
   }
 
   let footer = <p>Please pick a day.</p>;
@@ -106,5 +106,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  setReserve,
+  createReserve,
 })(Reserva);

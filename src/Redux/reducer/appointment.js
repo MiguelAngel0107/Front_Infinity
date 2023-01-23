@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,
-  date: null,
-  time: null,
+  appointment: null
 };
 
 const appointmentSlice = createSlice({
@@ -15,8 +13,15 @@ const appointmentSlice = createSlice({
         ...state,
       };
     },
+    GET_RESERVE(state, action){
+      let payload = action.payload
+      return{
+        ...state,
+        appointment: payload
+      }
+    }
   },
 });
 
-export const { CREATED_APPOINTMENT } = appointmentSlice.actions;
+export const { CREATED_APPOINTMENT, GET_RESERVE } = appointmentSlice.actions;
 export default appointmentSlice.reducer;
