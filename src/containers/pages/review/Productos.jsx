@@ -4,6 +4,7 @@ import { item } from "../../../components/servicios/item";
 const Productos = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log('Test Effect3')
   }, []);
   return (
     <Layout>

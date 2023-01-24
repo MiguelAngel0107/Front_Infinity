@@ -15,6 +15,10 @@ import Proyectos from "./containers/pages/review/Proyectos";
 import Contacto from "./containers/pages/review/Contacto";
 
 import Dashboard from "./containers/pages/review/Dashboard";
+import DashboardOne from "./containers/pages/views/dashboardOne";
+import DashboardTwo from "./containers/pages/views/dashboardTwo";
+import DashboardThree from "./containers/pages/views/dashboardThree";
+import DashboardFour from "./containers/pages/views/dashboardFour";
 
 import FAQ from "./containers/pages/views/FAQ";
 import NotFound from "./containers/pages/views/NotFound";
@@ -38,6 +42,10 @@ function App() {
           <Route exact path="/contacto" element={<Contacto />} />
 
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/dashboard/one" element={<DashboardOne />} />
+          <Route exact path="/dashboard/two" element={<DashboardTwo />} />
+          <Route exact path="/dashboard/three" element={<DashboardThree />} />
+          <Route exact path="/dashboard/four" element={<DashboardFour />} />
 
           <Route exact path="/faq" element={<FAQ />} />
         </Routes>

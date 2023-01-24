@@ -17,6 +17,7 @@ import { Date, Hour } from "../../../helpers/formatDate";
 const Reserva = ({ createReserve, user, isAuthenticated }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log('Test Effect3')
   }, []);
 
   const [selected, setSelected] = useState("");

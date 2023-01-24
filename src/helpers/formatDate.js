@@ -79,3 +79,14 @@ export const Hour = (x) => {
     minute:time[1]
   })
 }
+
+export const Str_a_Int = (x) => {
+  let dateStr = String(x)
+  dateStr = dateStr.split('-')
+  let [date1, date2, date3] = dateStr
+  date1 = Number(date1)
+  date2 = Number(date2)
+  date3 = Number(date3)
+  dateStr = [date1, date2-1, date3+1]
+  return dateStr
+}

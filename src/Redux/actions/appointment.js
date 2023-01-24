@@ -17,6 +17,7 @@ export const createReserve = (user, date, time) => async (dispatch) => {
   });
   try {
     const res = await axios.post(`${process.env.REACT_APP_API_URL}/appointment/reserve/`,body,config); 
+    console.log('Success in Axios Reserve')
     if (res.status === 200 && res.data) {
       dispatch(CREATED_APPOINTMENT(res.data));
       dispatch(setAlert('Cita guardada exitosamente', "green"));

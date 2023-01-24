@@ -1,9 +1,73 @@
-import React from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
+import { Fragment } from "react";
+import SubMenu from "./subMenu";
+import SubMenu2 from "./subMenu2";
+import { useState, useEffect } from "react";
 
-export default function Header() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export default function Header({nameUser}) {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const authLinks = (
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-full  text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-black">
+          <span className="inline-block h-11 w-11 rounded-full overflow-hidden bg-gray-900">
+            <img
+              alt=""
+              src="https://maesdestokp.s3.amazonaws.com/backiee-130192.jpg"
+              class="h-11 w-11 rounded-full object-cover"
+            />
+          </span>
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  to="/"
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Home
+                </Link>
+              )}
+            </Menu.Item>
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  );
+
   return (
     <header aria-label="Page Header" class="bg-gray-50 dark:bg-gray-900">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class=" w-full px-4 py-8 sm:px-6 lg:px-8">
         <div class="flex items-center justify-end gap-4">
           <div class="flex items-center gap-4">
             <div class="relative">
@@ -68,19 +132,12 @@ export default function Header() {
             class="block h-6 w-px rounded-full bg-gray-200"
           ></span>
 
-          <a href="#" class="block shrink-0">
-            <span class="sr-only">Profile</span>
-            <img
-              alt="Man"
-              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              class="h-10 w-10 rounded-full object-cover"
-            />
-          </a>
+          {authLinks}
         </div>
 
         <div class="mt-8">
           <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-            Welcome Back, Barry!
+            Welcome Back, {nameUser}!
           </h1>
 
           <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-50">
@@ -89,6 +146,7 @@ export default function Header() {
           </p>
         </div>
       </div>
+      {screenWidth >= 500 ? <SubMenu /> : <SubMenu2 />}
     </header>
   );
 }

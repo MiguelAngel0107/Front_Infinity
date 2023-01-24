@@ -1,15 +1,23 @@
+import { Link, useLocation } from "react-router-dom";
 
 export default function SubMenu() {
+  const location = useLocation();
+  let path = location.pathname;
+  
+  const select = (
+    <span class="absolute inset-x-0 -bottom-px h-px w-full bg-pink-600"></span>
+  );
+
   return (
     <ul class="flex border-b border-gray-100">
       <li class="flex-1">
-        <a class="relative block p-4" href="">
-          <span class="absolute inset-x-0 -bottom-px h-px w-full bg-pink-600"></span>
+        <Link class="relative block p-4" to="/dashboard/one">
+        {"/dashboard/one" == path ? select : null}
 
           <div class="flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 flex-shrink-0 text-gray-500"
+              class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -22,20 +30,21 @@ export default function SubMenu() {
               />
             </svg>
 
-            <span class="ml-3 text-sm font-medium text-gray-900">
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-white">
               {" "}
               Settings{" "}
             </span>
           </div>
-        </a>
+        </Link>
       </li>
 
       <li class="flex-1">
-        <a class="relative block p-4" href="">
+        <Link class="relative block p-4" to="/dashboard/two">
+          {"/dashboard/two" == path ? select : null}
           <div class="flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 flex-shrink-0 text-gray-500"
+              class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -48,20 +57,21 @@ export default function SubMenu() {
               />
             </svg>
 
-            <span class="ml-3 text-sm font-medium text-gray-900">
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-white">
               {" "}
               Messages{" "}
             </span>
           </div>
-        </a>
+        </Link>
       </li>
 
       <li class="flex-1">
-        <a class="relative block p-4" href="">
+        <Link class="relative block p-4" to="/dashboard/three">
+        {"/dashboard/three" == path ? select : null}
           <div class="flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 flex-shrink-0 text-gray-500"
+              class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -74,20 +84,21 @@ export default function SubMenu() {
               />
             </svg>
 
-            <span class="ml-3 text-sm font-medium text-gray-900">
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-white">
               {" "}
               Archive{" "}
             </span>
           </div>
-        </a>
+        </Link>
       </li>
 
       <li class="flex-1">
-        <a class="relative block p-4" href="">
+        <Link class="relative block p-4" to="/dashboard/four">
+        {"/dashboard/four" == path ? select : null}
           <div class="flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 flex-shrink-0 text-gray-500"
+              class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -100,11 +111,11 @@ export default function SubMenu() {
               />
             </svg>
 
-            <span class="ml-3 text-sm font-medium text-gray-900">
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-white">
               Notifications
             </span>
           </div>
-        </a>
+        </Link>
       </li>
     </ul>
   );
