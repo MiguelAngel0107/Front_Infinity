@@ -258,6 +258,7 @@ const Dashboard = (props) => {
       </div>
     </footer>
   );
+  
   let nameUser = "OwnInfinity"
   if(props.nameUser && props.nameUser != null && props.nameUser != undefined){
     nameUser = String(props.nameUser.first_name)

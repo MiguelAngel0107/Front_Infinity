@@ -5,7 +5,9 @@ import { Menu, Transition } from "@headlessui/react";
 import Alerts from "../alerts";
 import { logout } from "../../Redux/actions/auth";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
+//Estado del App con o sin Backend
+import StateApp from "../../helpers/stateForApp";
+//----//
 import {
   EditActiveIcon,
   EditInactiveIcon,
@@ -25,17 +27,29 @@ function classNames(...classes) {
 
 const Navbar = ({ isAuthenticated, user, logout, alert }) => {
   const [redirect, setRedirect] = useState(false);
+  const [componentHover, setComponentHover] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
   useEffect(() => {
     window.scroll(0, 0);
   }, [alert]);
+
   const logoutHandler = () => {
     logout();
     setRedirect(true);
   };
+
   if (redirect) {
     window.location.reload(false);
     return <Navigate to="/" />;
   }
+
   const authLinks = (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -117,11 +131,12 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
     </div>
   );
 
+  const notBack = <div></div>;
+
   const options = (
     <div className="block md:hidden">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          
           <Menu.Button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +167,8 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
-                  <Link to='/servicios'
+                  <Link
+                    to="/servicios"
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -174,7 +190,8 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <Link to='/productos'
+                  <Link
+                    to="/productos"
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -198,7 +215,8 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <Link to='/reserva'
+                  <Link
+                    to="/reserva"
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -220,7 +238,8 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <Link to='/proyectos'
+                  <Link
+                    to="/proyectos"
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -244,7 +263,8 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <Link to='/'
+                  <Link
+                    to="/"
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -270,6 +290,47 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
       </Menu>
     </div>
   );
+
+  const elemento1 = document.querySelector("#hover1");
+  const elemento2 = document.querySelector("#hover2");
+  const elemento3 = document.querySelector("#hover3");
+  const elemento4 = document.querySelector("#hover4");
+  const elemento5 = document.querySelector("#hover5");
+  const elemento6 = document.querySelector("#hover6");
+
+  if (
+    elemento1 != undefined &&
+    elemento1 != null &&
+    elemento2 != undefined &&
+    elemento2 != null &&
+    elemento3 != undefined &&
+    elemento3 != null &&
+    elemento4 != undefined &&
+    elemento4 != null &&
+    elemento5 != undefined &&
+    elemento5 != null &&
+    elemento6 != undefined &&
+    elemento6 != null
+  ) {
+    elemento1.addEventListener("mouseenter", () => {
+      setComponentHover([true, false, false, false, false, false]);
+    });
+    elemento2.addEventListener("mouseenter", () => {
+      setComponentHover([false, true, false, false, false, false]);
+    });
+    elemento3.addEventListener("mouseenter", () => {
+      setComponentHover([false, false, true, false, false, false]);
+    });
+    elemento4.addEventListener("mouseenter", () => {
+      setComponentHover([false, false, false, true, false, false]);
+    });
+    elemento5.addEventListener("mouseenter", () => {
+      setComponentHover([false, false, false, false, true, false]);
+    });
+    elemento6.addEventListener("mouseenter", () => {
+      setComponentHover([false, false, false, false, false, true]);
+    });
+  }
 
   return (
     <>
@@ -297,8 +358,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
               <nav aria-label="Site Nav">
                 <ul class="flex items-center gap-6 text-sm">
                   <li>
+                    {componentHover[0] ? (
+                      <span class="absolute top-12 h-0.5 w-9 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover1"
+                      class="text-gray-500 font-semibold transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/"
                     >
                       Inicio
@@ -306,8 +373,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
                   </li>
 
                   <li>
+                    {componentHover[1] ? (
+                      <span class="absolute top-12 h-0.5 w-14 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover2"
+                      class="text-gray-500 font-semibold  transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/servicios"
                     >
                       Servicios
@@ -315,8 +388,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
                   </li>
 
                   <li>
+                    {componentHover[2] ? (
+                      <span class="absolute top-12 h-0.5 w-16 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover3"
+                      class="text-gray-500 font-semibold  transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/productos"
                     >
                       Productos
@@ -324,8 +403,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
                   </li>
 
                   <li>
+                    {componentHover[3] ? (
+                      <span class="absolute top-12 h-0.5 w-12 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover4"
+                      class="text-gray-500 font-semibold  transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/reserva"
                     >
                       Reserva
@@ -333,8 +418,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
                   </li>
 
                   <li>
+                    {componentHover[4] ? (
+                      <span class="absolute top-12 h-0.5 w-16 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover5"
+                      class="text-gray-500 font-semibold  transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/proyectos"
                     >
                       Proyectos
@@ -342,8 +433,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
                   </li>
 
                   <li>
+                    {componentHover[5] ? (
+                      <span class="absolute top-12 h-0.5 w-20 bg-white"></span>
+                    ) : (
+                      <span class="absolute top-12 h-0 w-9 bg-white"></span>
+                    )}
                     <Link
-                      class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      id="hover6"
+                      class="text-gray-500 font-semibold  transition hover:text-gray-500/75 dark:text-white/75 dark:hover:text-white"
                       to="/contacto"
                     >
                       Contactenos
@@ -353,10 +450,14 @@ const Navbar = ({ isAuthenticated, user, logout, alert }) => {
               </nav>
             </div>
 
-            <div class="flex items-center gap-4">
-              {isAuthenticated ? authLinks : guestLinks}
-              {options}
-            </div>
+            {StateApp ? (
+              <div class="flex items-center gap-4">
+                {isAuthenticated ? authLinks : guestLinks}
+                {options}
+              </div>
+            ) : (
+              notBack
+            )}
           </div>
         </div>
       </header>
