@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Layout from "../../../layout/layout";
 import { item } from "../../../components/servicios/item";
+import img1 from '../../../img/OwnDark.png'
 const Proyectos = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,7 +39,7 @@ const Proyectos = () => {
                   <li>
                     <a href="#" class="block group">
                       <img
-                        src="https://maesdestokp.s3.amazonaws.com/OwnDark.png"
+                        src={img1}
                         alt=""
                         class="object-cover w-full rounded"
                       />

@@ -513,7 +513,7 @@ const Footer = () => {
 
           <div class="text-center sm:flex sm:justify-between sm:text-left">
             <p class="text-sm text-gray-500">
-              <span class="block sm:inline">All rights reserved.</span>
+              <span class="block sm:inline"> {' .'}All rights reserved.</span>
 
               <a
                 class="inline-block text-teal-600 underline transition hover:text-teal-600/75"
@@ -533,7 +533,7 @@ const Footer = () => {
             </p>
 
             <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-              &copy; 2022 Company Name
+              &copy; 2022 OwnInfinity Enterprice {' '}
             </p>
           </div>
         </div>
