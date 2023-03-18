@@ -21,7 +21,7 @@ import {
   DeleteInactiveIcon,
 } from "../../helpers/helpnavbar";
 
-import Logo from '../../img/logoSVG2'
+import Logo from '../../img/logoSVG'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
